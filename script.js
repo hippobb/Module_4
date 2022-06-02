@@ -13,18 +13,13 @@ var DataObj = {
 };
 var high_score = [];
 
-<<<<<<< HEAD
 //Load the first page
-=======
->>>>>>> 45f02d71735c974f34642e253f90527c8be3545f
 document.addEventListener('DOMContentLoaded', function() {
   Quiz_page();
 }, false);
 
-<<<<<<< HEAD
+
 //Timer for the Quiz
-=======
->>>>>>> 45f02d71735c974f34642e253f90527c8be3545f
 function myTimer(){
     if(time==0){
         clearInterval(timer1);
@@ -36,11 +31,7 @@ function myTimer(){
         timeText.innerHTML="<h2>Time: "+time;  
     }
 }
-<<<<<<< HEAD
 //Timer for the time switching to new page
-=======
-
->>>>>>> 45f02d71735c974f34642e253f90527c8be3545f
 function myTimer2(){
   clearInterval(timer2);
   page++;
@@ -48,17 +39,13 @@ function myTimer2(){
   Quiz_page();
   }
 
-<<<<<<< HEAD
  //Start the Quiz timer 
-=======
->>>>>>> 45f02d71735c974f34642e253f90527c8be3545f
 function timer_start(){
   time=75;
   timeText.innerHTML="<h2>Time: "+time;  
   timer1 = setInterval(myTimer ,1000);
 }
 
-<<<<<<< HEAD
 // Load the Page content
 var Quiz_page = function() {
   var match_page=0;
@@ -74,27 +61,11 @@ var Quiz_page = function() {
   document.getElementById("result").innerHTML="";
 
   //Create the content page
-=======
-var Quiz_page = function() {
-  var match_page=0;
-  for( var i=0; i<page_detail.length; i++){
-     if (page_detail[i].getAttribute("page")==page) {match_page=i;break;}
-  }
-
-  if (!!document.getElementById("question_page")) document.getElementById("question_page").remove();
-
-  document.getElementById("result").setAttribute("style" , "border-top: 5px;");
-  document.getElementById("result").innerHTML="";
-
->>>>>>> 45f02d71735c974f34642e253f90527c8be3545f
   var text_question = document.createElement("div");
   text_question.className = "question_page";
   text_question.id="question_page";
 
-<<<<<<< HEAD
   //Load the content
-=======
->>>>>>> 45f02d71735c974f34642e253f90527c8be3545f
   var question_h2 = document.createElement("h2");
   question_h2.textContent = page_detail[match_page].getAttribute("content_title");
   question_h2.className = "question title";
@@ -110,10 +81,7 @@ var Quiz_page = function() {
   question_h3.className = "question content";
   text_question.appendChild(question_h3);
 
-<<<<<<< HEAD
   //Create the button in the content page
-=======
->>>>>>> 45f02d71735c974f34642e253f90527c8be3545f
   if (page==0) {
     var confirmButton = document.createElement("button");
     confirmButton.textContent = page_detail[match_page].getAttribute("btn_confirm");
@@ -192,14 +160,9 @@ var Quiz_page = function() {
 }
 
 
-<<<<<<< HEAD
 //check answer
 var check_answer= function(ans){
 
-=======
-
-var check_answer= function(ans){
->>>>>>> 45f02d71735c974f34642e253f90527c8be3545f
   if (time2_running==0){
     var match_page=0;
   for( var i=0; i<page_detail.length; i++){
@@ -208,7 +171,6 @@ var check_answer= function(ans){
   }
   if (page_detail[match_page].getAttribute("answer")==ans){
     document.getElementById("result").innerHTML="<h2> Correct! </h2>"; 
-<<<<<<< HEAD
     document.getElementById("result").setAttribute("style" , "border-top: 5px;");    
   }
   else{
@@ -220,30 +182,17 @@ var check_answer= function(ans){
   //start the timer for the result display
   timer2 = setInterval(myTimer2 ,500);
   
-=======
-    document.getElementById("result").setAttribute("style" , "border-top: 5px;");
-  }
-  else{document.getElementById("result").innerHTML="<h2> Wrong! </h2>";
-  document.getElementById("result").setAttribute("style" , "border-top: 5px solid green;");
-  if (time<=10) time = 0; else time=time-10;
-  }
-  timer2 = setInterval(myTimer2 ,500);
->>>>>>> 45f02d71735c974f34642e253f90527c8be3545f
   time2_running=1;
 }
 }
 
-<<<<<<< HEAD
 //Sort the score
-=======
 
->>>>>>> 45f02d71735c974f34642e253f90527c8be3545f
 var bubble_sort = function (){
   var score_array = JSON.parse(localStorage.getItem("h_score"));
   var tmp_score;
   var tmp_name;
   if(score_array.length>=1){
-<<<<<<< HEAD
     for (var i = 0; i < score_array.length; i++) {
       for (var j = 0; j < score_array.length-1; j++) {
           if (parseInt(score_array[j].score) < parseInt(score_array[j + 1].score)) {
@@ -262,28 +211,6 @@ var bubble_sort = function (){
 }
 
 //button action
-=======
-  for (var i = 0; i < score_array.length; i++) {
-    for (var j = 0; j < score_array.length-1; j++) {
-        if (parseInt(score_array[j].score) < parseInt(score_array[j + 1].score)) {
-            tmp_score = score_array[j].score;
-            tmp_name = score_array[j].name;
-            score_array[j].score = score_array[j + 1].score;
-            score_array[j].name = score_array[j + 1].name;
-            score_array[j + 1].score = tmp_score;            
-            score_array[j + 1].name = tmp_name;
-            console.log(score_array);
-        }
-    }
-  }
-    localStorage.removeItem("h_score");
-    localStorage.setItem("h_score", JSON.stringify(score_array));
-}
-
-
-}
-
->>>>>>> 45f02d71735c974f34642e253f90527c8be3545f
   var taskButtonHandler = function(event) {
     // get target element from event
     var targetEl = event.target;
@@ -331,11 +258,8 @@ var bubble_sort = function (){
       Quiz_page();
     }
   };
-<<<<<<< HEAD
 
   //view High Score
-=======
->>>>>>> 45f02d71735c974f34642e253f90527c8be3545f
   var V_H_S = function(){
     clearInterval(timer1);
     time=0;    
@@ -344,7 +268,6 @@ var bubble_sort = function (){
     Quiz_page();
   }
 
-<<<<<<< HEAD
   // change the color button when the mouse over
   var taskButtonHandler2 = function(event) {
     // get target element from event
@@ -373,36 +296,6 @@ var bubble_sort = function (){
       if (targetEl.matches(".btn_clear")) document.querySelector(".btn_clear").setAttribute("style" , " background-color: purple;");
       if (targetEl.matches(".btn_submit")) document.querySelector(".btn_submit").setAttribute("style" , " background-color: purple;");
       if (targetEl.matches(".quiz_start")) document.querySelector(".quiz_start").setAttribute("style" , " background-color: purple;");
-=======
-
-  var taskButtonHandler2 = function(event) {
-    // get target element from event
-    var targetEl = event.target;
-    if (targetEl.matches("a")) document.querySelector("a").setAttribute("style" , "color: var(--darkpurple);");
-   if (targetEl.matches(".ans_0")) document.querySelector(".ans_0").setAttribute("style" , " background-color: var(--darkpurple);");
-   if (targetEl.matches(".ans_1")) document.querySelector(".ans_1").setAttribute("style" , " background-color: var(--darkpurple);");
-   if (targetEl.matches(".ans_2")) document.querySelector(".ans_2").setAttribute("style" , " background-color: var(--darkpurple);");
-   if (targetEl.matches(".ans_3")) document.querySelector(".ans_3").setAttribute("style" , " background-color: var(--darkpurple);");
-   if (targetEl.matches(".btn_back")) document.querySelector(".btn_back").setAttribute("style" , " background-color: var(--darkpurple);");
-   if (targetEl.matches(".btn_clear")) document.querySelector(".btn_clear").setAttribute("style" , " background-color: var(--darkpurple);");
-   if (targetEl.matches(".btn_submit")) document.querySelector(".btn_submit").setAttribute("style" , " background-color: var(--darkpurple);");
-   if (targetEl.matches(".quiz_start")) document.querySelector(".quiz_start").setAttribute("style" , " background-color: var(--darkpurple);");
- 
-  }; 
-   var taskButtonHandler3 = function(event) {
-    // get target element from event
-    var targetEl = event.target;
-    if (targetEl.matches("a")) document.querySelector("a").setAttribute("style" , "color: purple;");
-   if (targetEl.matches(".ans_0")) document.querySelector(".ans_0").setAttribute("style" , " background-color: purple;");
-   if (targetEl.matches(".ans_1")) document.querySelector(".ans_1").setAttribute("style" , " background-color: purple;");
-   if (targetEl.matches(".ans_2")) document.querySelector(".ans_2").setAttribute("style" , " background-color: purple;");
-   if (targetEl.matches(".ans_3")) document.querySelector(".ans_3").setAttribute("style" , " background-color: purple;");
-   if (targetEl.matches(".btn_back")) document.querySelector(".btn_back").setAttribute("style" , " background-color: purple;");
-   if (targetEl.matches(".btn_clear")) document.querySelector(".btn_clear").setAttribute("style" , " background-color: purple;");
-   if (targetEl.matches(".btn_submit")) document.querySelector(".btn_submit").setAttribute("style" , " background-color: purple;");
-   if (targetEl.matches(".quiz_start")) document.querySelector(".quiz_start").setAttribute("style" , " background-color: purple;");
-
->>>>>>> 45f02d71735c974f34642e253f90527c8be3545f
   };
 
 // Add event listener to generate button
